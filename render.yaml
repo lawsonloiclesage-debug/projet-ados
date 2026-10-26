@@ -8,6 +8,6 @@ services:
     healthCheckPath: /api/health
     envVars:
       - key: ADMIN_TOKEN
-        value: projet
+        sync: false # Définissez la valeur dans l'onglet Environment de Render
       - key: DB_FILE
         value: projet-ados.db
