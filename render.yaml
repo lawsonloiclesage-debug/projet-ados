@@ -1,0 +1,18 @@
+# Déploiement Render en un clic (Blueprint). Le disque persistant demande un plan payant.
+services:
+  - type: web
+    name: projet-ados
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: DB_FILE
+        value: /data/projet-ados.db
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
